@@ -78,7 +78,7 @@ Créer une fonction qui permet de lancer l’application Shiny sur le port 3838 
 
 L’application Shiny est maintenant packagée, il faut créer la source de ce package (tar.gz) pour pouvoir le partager et l’installer.
 
-** Spécificité Windows **
+### Spécificité Windows
 
 Sous Windows, il faut tout d’abord installer RTools : 
 https://cran.rstudio.com/bin/windows/Rtools/
@@ -97,7 +97,7 @@ Sys.which("make")
 
 Si make est trouvé, c'est ok, on va pouvoir compiler et créer la source de notre package.
 
-** Installation du package devtools **
+### Installation du package devtools
 
 Ensuite il faut installer le package devtools et le charger :
 
@@ -124,13 +124,13 @@ Le fichier source est créé : "/path/to/2_creation_package_R_de_son_application
 
 Par exemple, partager ce fichier via Github. Une fois la source disponible sur votre dépôt git, tout le monde peut installer le package via ce lien.
 
-**Pour installer le package via ce dépôt Git :**
+### Pour installer le package via ce dépôt Git :
 
 ```r
 install.packages("https://github.com/a-velt/Shiny_app_deployment/raw/main/2_creation_package_R_de_son_application/hackathon_0.1.0.tar.gz", repos = NULL, type="source")
 ```
 
-**Puis pour lancer l’application shiny :**
+### Puis pour lancer l’application shiny :
 
 ```r
 library("hackathon")
