@@ -161,6 +161,8 @@ Je récupère l'image de mon application Shiny :
 docker pull avelt/hackathon
 ```
 
+### Lancement de Shinyproxy sur l'instance EC2 AWS
+
 Je lance Shinyproxy sur le port 8080
 
 ```
