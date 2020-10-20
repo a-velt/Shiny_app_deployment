@@ -47,4 +47,13 @@ https://hackathon-avelt.shinyapps.io/hackathon/
 
 Ce lien peut alors être partagé.
 
+## Partager son application sous forme de package R
+
+Une autre solution de de packager son application Shiny et de permettre ainsi aux utilisateurs d'installer l'application Shiny via ce package et de la lancer avec une fonction pré-définie.
+
+Sous Rstudio, créer un nouveau projet …
+
+
+
+
 
