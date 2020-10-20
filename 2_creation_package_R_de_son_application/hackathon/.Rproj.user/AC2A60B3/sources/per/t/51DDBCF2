@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1603118031962.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1699199656",
+    "id" : "51DDBCF2",
+    "lastKnownWriteTime" : 1602253367,
+    "last_content_update" : 1602253367,
+    "path" : "C:/Users/avelt/Desktop/Hackaton_Shiny/Exercice/app1/app.R",
+    "project_path" : null,
+    "properties" : {
+        "cursorPosition" : "9,1",
+        "scrollLine" : "0"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
