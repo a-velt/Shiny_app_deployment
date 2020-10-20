@@ -155,10 +155,11 @@ Je construit l'image Shinproxy :
 docker build -t shinyproxy .
 ```
 
-Je récupère l'image de mon application Shiny :
+Je récupère l'image de mon application Shiny et des deux applications Shiny exemple proposées par Shinyproxy :
 
 ```
 docker pull avelt/hackathon
+docker pull openanalytics/shinyproxy-demo
 ```
 
 ### Lancement de Shinyproxy sur l'instance EC2 AWS
