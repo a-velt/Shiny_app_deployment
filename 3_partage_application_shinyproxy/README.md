@@ -83,7 +83,7 @@ Je choisi une instance Ubuntu 20.04 :
 
 <img src="https://github.com/a-velt/Shiny_app_deployment/blob/main/3_partage_application_shinyproxy/images/2.png" height="100">
 
-Je prends la version small, avec 2Go de RAM :
+Je prends la version micro, gratuite, avec 1Go de RAM :
 
 <img src="https://github.com/a-velt/Shiny_app_deployment/blob/main/3_partage_application_shinyproxy/images/3.png" height="100">
 
