@@ -139,8 +139,8 @@ Je récupère le Dockerfile et le fichier application.yml.
 ```
 mkdir shinyproxy
 cd shinyproxy
-wget https://github.com/a-velt/Shiny_app_deployment/blob/main/3_partage_application_shinyproxy/shinyproxy/Dockerfile
-wget https://github.com/a-velt/Shiny_app_deployment/blob/main/3_partage_application_shinyproxy/shinyproxy/application.yml
+wget wget https://raw.githubusercontent.com/a-velt/Shiny_app_deployment/main/3_partage_application_shinyproxy/shinyproxy/Dockerfile
+wget https://raw.githubusercontent.com/a-velt/Shiny_app_deployment/main/3_partage_application_shinyproxy/shinyproxy/application.yml
 ```
 
 Créer un réseau docker que Shinyproxy va utiliser pour communiquer avec les containers Shiny :
