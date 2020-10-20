@@ -48,6 +48,8 @@ local({
 
 Note : Le Dockerfile permet d'installer R dans un environnement Linux, puis d'installer les packages "shiny" et "ggplot2" nécessaires au fonctionnement de notre application Shiny. Ensuite, il va copier la source de notre package R contenant l'application et va l'installer dans l'instance R disponible. Il copie le fichier Rprofile.site au bon endroit pour s'assurer que l'application Shiny sera lancée sur le port attendu par Shinyproxy, ici le port 3838. Il expose le port 3838 et enfin, il exécute la fonction permettant de lancer l'application Shiny.
 
+**Construction de l'image Docker :**
+
 Une fois ces 3 fichiers préparés, il suffit de se placer dans le dossier et d'exécuter la commande suivante : 
 
 ```
@@ -56,14 +58,14 @@ docker build -t avelt/hackathon .
 
 La construction de l'image étant très longue, dû à l'installation de l'ensemble des packages permettant de faire fonctionner Shiny et ggplot2, je vous conseille de récupérer directement l'image que j'ai généré et rendue disponible sur dockerhub.
 
-Pour mettre votre image construire sur Dockerhub :
+**Partage de l'image sur Dockerhub :**
 
 ```
 docker login
 docker push avelt/hackathon
 ```
 
-Pour récupérer l'image pour cet atelier, sans avoir à la construire : 
+**Récupérer l'image via Dockerhub :** 
 
 ```
 docker pull avelt/hackathon
