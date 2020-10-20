@@ -124,13 +124,13 @@ Le fichier source est créé : "/path/to/2_creation_package_R_de_son_application
 
 Par exemple, partager ce fichier via Github. Une fois la source disponible sur votre dépôt git, tout le monde peut installer le package via ce lien.
 
-** Pour installer le package via ce dépôt Git : **
+**Pour installer le package via ce dépôt Git :**
 
 ```r
 install.packages("https://github.com/a-velt/Shiny_app_deployment/raw/main/2_creation_package_R_de_son_application/hackathon_0.1.0.tar.gz", repos = NULL, type="source")
 ```
 
-** Puis pour lancer l’application shiny : **
+**Puis pour lancer l’application shiny :**
 
 ```r
 library("hackathon")
