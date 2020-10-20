@@ -14,8 +14,8 @@ Ce dépôt permet d'accéder aux différents fichier exemples et à l'aide pour 
 Shinyapps.io est une Plateforme en tant que Service (PaaS) pour héberger des applications Shiny. En créant un compte sur shinyapps.io, il est possible de déployer très facilement son application sur le cloud. 
 
 **Pré-requis :**
--   R/Rstudio
--   Le package rsconnect permet de déployer les applications sur le service shinyapps.io. Il faut donc l’installer. 
+-	R/Rstudio
+-	Le package rsconnect permet de déployer les applications sur le service shinyapps.io. Il faut donc l’installer. 
       ```r
       install.packages('rsconnect')
       ```
