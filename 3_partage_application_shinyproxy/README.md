@@ -71,9 +71,23 @@ docker push avelt/hackathon
 docker pull avelt/hackathon
 ```
 
+## Déploiement de l'application Shiny avec Shinyproxy
 
+Pour cet atelier, je vais installer et configurer Shinyproxy sur une instance EC2 d'AWS.
 
+https://eu-west-3.console.aws.amazon.com/ec2/v2/home?region=eu-west-3#Home
 
+Je choisi une VM Ubuntu 20.04 :
+
+<img src="https://github.com/a-velt/Shiny_app_deployment/blob/main/3_partage_application_shinyproxy/images/2.png" height="100">
+
+Je prends la version small, avec 2Go de RAM :
+
+<img src="https://github.com/a-velt/Shiny_app_deployment/blob/main/3_partage_application_shinyproxy/images/3.png" height="100">
+
+Et dans la configuration des groupes de sécurité, j'ouvre le port 80, 443 et 8080 :
+
+<img src="https://github.com/a-velt/Shiny_app_deployment/blob/main/3_partage_application_shinyproxy/images/4.png" height="100">
 
 
 
