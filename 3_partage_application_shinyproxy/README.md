@@ -139,7 +139,7 @@ Je récupère le Dockerfile et le fichier application.yml.
 ```
 mkdir shinyproxy
 cd shinyproxy
-wget wget https://raw.githubusercontent.com/a-velt/Shiny_app_deployment/main/3_partage_application_shinyproxy/shinyproxy/Dockerfile
+wget https://raw.githubusercontent.com/a-velt/Shiny_app_deployment/main/3_partage_application_shinyproxy/shinyproxy/Dockerfile
 wget https://raw.githubusercontent.com/a-velt/Shiny_app_deployment/main/3_partage_application_shinyproxy/shinyproxy/application.yml
 ```
 
