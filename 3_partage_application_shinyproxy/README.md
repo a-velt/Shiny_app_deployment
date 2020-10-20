@@ -73,11 +73,13 @@ docker pull avelt/hackathon
 
 ## Déploiement de l'application Shiny avec Shinyproxy
 
+### Lancement/configuration d'une instance EC2 AWS
+
 Pour cet atelier, je vais installer et configurer Shinyproxy sur une instance EC2 d'AWS.
 
 https://eu-west-3.console.aws.amazon.com/ec2/v2/home?region=eu-west-3#Home
 
-Je choisi une VM Ubuntu 20.04 :
+Je choisi une instance Ubuntu 20.04 :
 
 <img src="https://github.com/a-velt/Shiny_app_deployment/blob/main/3_partage_application_shinyproxy/images/2.png" height="100">
 
@@ -89,7 +91,88 @@ Et dans la configuration des groupes de sécurité, j'ouvre le port 80, 443 et 8
 
 <img src="https://github.com/a-velt/Shiny_app_deployment/blob/main/3_partage_application_shinyproxy/images/4.png" height="100">
 
+Je me connecte en ssh sur l'instance EC2 avec le fichier .pem contenant la clé publique et avec l'utilisateur ubuntu :
 
+```
+ssh -i fichier.pem ubuntu@15.*.*.* 
+```
+
+### Installation de Docker sur l'instance EC2 AWS
+
+J'installe Docker et docker-compose sur cette instance en suivant le mode op' proposé par Docker (https://docs.docker.com/engine/install/ubuntu/ et https://docs.docker.com/compose/install/ ) : 
+
+```
+sudo apt-get update
+sudo apt-get install \
+    apt-transport-https \
+    ca-certificates \
+    curl \
+    gnupg-agent \
+    software-properties-common
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo apt-key fingerprint 0EBFCD88
+sudo add-apt-repository \
+   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+   $(lsb_release -cs) \
+   stable"
+sudo apt-get install docker-ce docker-ce-cli containerd.io
+sudo curl -L "https://github.com/docker/compose/releases/download/1.27.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+```
+
+J'ajoute le user ubuntu au groupe docker pour ne pas avoir à lancer les commandes docker en root :
+
+```
+sudo usermod -a -G docker ubuntu
+```
+
+J'installe Java, qui est nécessaire pour faire fonctionner Shinyproxy : 
+
+```
+sudo apt install default-jdk
+```
+
+### Installation de Shinyproxy sur l'instance EC2 AWS
+
+Je récupère le Dockerfile et le fichier application.yml.
+
+```
+mkdir shinyproxy
+cd shinyproxy
+wget https://github.com/a-velt/Shiny_app_deployment/blob/main/3_partage_application_shinyproxy/shinyproxy/Dockerfile
+wget https://github.com/a-velt/Shiny_app_deployment/blob/main/3_partage_application_shinyproxy/shinyproxy/application.yml
+```
+
+Créer un réseau docker que Shinyproxy va utiliser pour communiquer avec les containers Shiny :
+
+```
+docker network create sp-example-net
+```
+
+Je construit l'image Shinproxy :
+
+```
+docker build -t shinyproxy .
+```
+
+Je récupère l'image de mon application Shiny :
+
+```
+docker pull avelt/hackathon
+```
+
+Je lance Shinyproxy sur le port 8080
+
+```
+sudo docker run -d -v /var/run/docker.sock:/var/run/docker.sock --net sp-example-net -p 8080:8080 shinyproxy
+```
+
+Maintenant, pour se connecter à Shinyproxy : 
+
+http://15.*.*.*:8080/login
+
+
+Avec exemple user1/user1_pass.
 
 
 
