@@ -133,11 +133,15 @@ https://cran.rstudio.com/bin/windows/Rtools/
 
 Définir le chemin vers RTools : 
 
+```r
 writeLines('PATH="${RTOOLS40_HOME}\\usr\\bin;${PATH}"', con = "~/.Renviron")
+```
 
 Re-démarrer R et tester que RTools est dans les chemins : 
 
+```r
 Sys.which("make")
+```
 
 Si make est trouvé, c'est ok, on va pouvoir compiler et créer la source de notre package.
 
@@ -145,16 +149,22 @@ Si make est trouvé, c'est ok, on va pouvoir compiler et créer la source de not
 
 Ensuite il faut installer le package devtools et le charger :
 
+```r
 install.packages(‘devtools’)
 library(‘devtools’)
+```
 
 Se placer dans le dossier du package : 
 
+```r
 setwd("/path/to/2_creation_package_R_de_son_application/hackathon")
+```
 
 Et lancer le build du package :
 
+```r
 build()
+```
 
 Le fichier source est créé : "/path/to/2_creation_package_R_de_son_application/hackathon_0.1.0.tar.gz"
 
@@ -164,12 +174,16 @@ Par exemple, partager ce fichier via Github. Une fois la source disponible sur v
 
 ** Pour installer le package via ce dépôt Git : **
 
+```r
 install.packages("https://github.com/a-velt/Shiny_app_deployment/raw/main/2_creation_package_R_de_son_application/hackathon_0.1.0.tar.gz", repos = NULL, type="source")
+```
 
 ** Puis pour lancer l’application shiny : **
 
+```r
 library("hackathon")
 shiny_application()
+```
 
 ## Partager son application via Shinyproxy et l'utilisation de containers Docker
 
