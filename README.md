@@ -18,7 +18,7 @@ Voir le README correspondant : https://github.com/a-velt/Shiny_app_deployment/bl
 
 ## Partager son application via Shinyproxy et l'utilisation de containers Docker
 
-
+Voir le README correspondant : https://github.com/a-velt/Shiny_app_deployment/tree/main/3_partage_application_shinyproxy
 
 
 
