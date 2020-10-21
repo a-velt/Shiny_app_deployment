@@ -45,7 +45,7 @@ local({
 })
 ```
 
-Note : Le Dockerfile permet d'installer R dans un environnement Linux, puis d'installer les packages "shiny" et "ggplot2" nécessaires au fonctionnement de notre application Shiny. Ensuite, il va copier la source de notre package R contenant l'application et va l'installer dans l'instance R disponible. Il copie le fichier Rprofile.site au bon endroit pour s'assurer que l'application Shiny sera lancée sur le port attendu par Shinyproxy, ici le port 3838. Il expose le port 3838 et enfin, il exécute la fonction permettant de lancer l'application Shiny.
+Note : Le Dockerfile permet d'installer R dans un environnement Linux, puis d'installer les packages "shiny" et "ggplot2" nécessaires au fonctionnement de notre application Shiny. Ensuite, il va copier la source de notre package R contenant l'application et va l'installer dans l'instance R disponible. Il copie le fichier Rprofile.site au bon endroit pour s'assurer que l'application Shiny sera lancée sur le port attendu par Shinyproxy, ici le port 3838. Il expose le port 3838 et enfin, il définit la commande à lancer lors de la création d'un container, soit la fonction permettant de lancer l'application Shiny.
 
 **Construction de l'image Docker :**
 
