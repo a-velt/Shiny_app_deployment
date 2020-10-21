@@ -4,7 +4,7 @@
 
 Je crée l’image docker de l'application Shiny à déployer sur shinyproxy. 
 
-Je fais ça sur un serveur linux sur lequel Docker est installé.
+Je fais ça sur un serveur linux sur lequel Docker est installé. Note : je le fais la construction en avance car l'installation de R et de ses packages est longue, donc la construction de l'image est longue.
 
 **Structure du dossier à partir duquel je vais construire l'image Docker de l'application :**
 
