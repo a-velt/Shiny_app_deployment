@@ -127,12 +127,6 @@ J'ajoute le user ubuntu au groupe docker pour ne pas avoir à lancer les command
 sudo usermod -a -G docker ubuntu
 ```
 
-J'installe Java, qui est nécessaire pour faire fonctionner Shinyproxy : 
-
-```
-sudo apt install default-jdk
-```
-
 ### Installation de Shinyproxy sur l'instance EC2 AWS
 
 Je récupère le Dockerfile et le fichier application.yml.
@@ -143,6 +137,71 @@ cd shinyproxy
 wget https://raw.githubusercontent.com/a-velt/Shiny_app_deployment/main/3_partage_application_shinyproxy/shinyproxy/Dockerfile
 wget https://raw.githubusercontent.com/a-velt/Shiny_app_deployment/main/3_partage_application_shinyproxy/shinyproxy/application.yml
 ```
+
+application.yml : 
+
+```
+proxy:
+  port: 8080
+  container-wait-time: 30000
+  authentication: simple
+  admin-groups: admins
+  users:
+  - name: avelt
+    password: avelt
+    groups: admins
+  - name: user1
+    password: user1_pass
+  - name: user2
+    password: user2_pass
+  - name: user3
+    password: user3_pass
+  docker:
+      internal-networking: true
+  specs:
+  - id: hackathon
+    description: Ma première application
+    container-cmd: ["R", "-e", "hackathon::shiny_application()"]
+    container-image: avelt/hackathon
+    container-network: sp-example-net
+  - id: 01_hello
+    display-name: Hello Application
+    description: Application which demonstrates the basics of a Shiny app
+    container-cmd: ["R", "-e", "shinyproxy::run_01_hello()"]
+    container-image: openanalytics/shinyproxy-demo
+    container-network: sp-example-net
+  - id: 06_tabsets
+    container-cmd: ["R", "-e", "shinyproxy::run_06_tabsets()"]
+    container-image: openanalytics/shinyproxy-demo
+    container-network: sp-example-net
+logging:
+  file:
+    shinyproxy.log
+```
+
+Il s'agit de la configuration de Shinyproxy. Shinyproxy sera disponible sur le port 8080. 
+
+Ici il s'agit d'une authentification simple, on met directement les noms d'utilisateurs et mot de passe dans le fichier de configuration. Une documentation détaillée de tous les systèmes d'authentifications supportées par Shinyproxy est disponible ici : https://www.shinyproxy.io/configuration/#authentication
+
+Enfin, on spécifie les applications Shiny qu'on souhaite héberger sur ce Shinyproxy, en donnant notamment l'image docker de l'application et la commande lancée dans le container pour exécuter cette application.
+
+Dockerfile :
+
+```
+FROM openjdk:8-jre
+
+RUN mkdir -p /opt/shinyproxy/
+RUN wget https://www.shinyproxy.io/downloads/shinyproxy-2.4.0.jar -O /opt/shinyproxy/shinyproxy.jar
+COPY application.yml /opt/shinyproxy/application.yml
+
+WORKDIR /opt/shinyproxy/
+
+EXPOSE 8080
+
+CMD ["java", "-jar", "/opt/shinyproxy/shinyproxy.jar"]
+```
+
+Il s'agit du Dockerfile fourni par Shinyproxy, qui part de l'image openjdk qui rend disponible java 8 avec l'OS Debian -> Shinyproxy est une application Java. Puis ce Dockerfile va permettre de construire une image contenant Shinyproxy : pour ça, on récupère le .jar de Shinyproxy ainsi que la configuration de Shinyproxy qu'on a créé (application.yml). On expose le port 8080 (port sur lequel écoutera le container) et la commande lancée dans le container sera l'exécution du .jar de Shinyproxy.
 
 Créer un réseau docker que Shinyproxy va utiliser pour communiquer avec les containers Shiny :
 
