@@ -90,11 +90,13 @@ Et dans la configuration des groupes de sécurité, j'ouvre le port 80, 443 et 8
 
 <img src="https://github.com/a-velt/Shiny_app_deployment/blob/main/3_partage_application_shinyproxy/images/4.png" height="100">
 
-Je me connecte en ssh sur l'instance EC2 avec le fichier .pem contenant la clé publique et avec l'utilisateur ubuntu :
+Je me connecte en ssh sur l'instance EC2 avec le fichier .pem contenant la clé privée et avec l'utilisateur ubuntu :
 
 ```
 ssh -i fichier.pem ubuntu@15.*.*.* 
 ```
+
+Note: Lors de la création de l'instance, AWS vous a demandé de créer une paire de clés, composée d'une clé privée et d'une clé publique. A ce moment là, vous récupérez un fichier .pem ou .ppk contenant la clé privée et vous permettant de vous connecter en SSH à cet instance.
 
 ### Installation de Docker sur l'instance EC2 AWS
 
