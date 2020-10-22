@@ -102,8 +102,8 @@ Si make est trouvé, c'est ok, on va pouvoir compiler et créer la source de not
 Ensuite il faut installer le package devtools et le charger :
 
 ```r
-install.packages(‘devtools’)
-library(‘devtools’)
+install.packages('devtools')
+library(devtools)
 ```
 
 Se placer dans le dossier du package : 
