@@ -30,7 +30,6 @@ Globalement, il faut autoriser ce compte shinyapps.io en local sur votre ordinat
 Enfin, on partage l’application Shiny contenu dans un dossier : 
 
 ```r
-setwd("C:/Users/avelt/Desktop/Hackaton_Shiny/Exercice/app16")
 rsconnect::deployApp(appDir = "/path/to/1_partage_application_shinyapps.io/hackathon/", account = 'hackathon-avelt')
 ```
 
