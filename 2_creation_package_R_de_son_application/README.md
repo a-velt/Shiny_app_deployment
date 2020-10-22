@@ -38,24 +38,6 @@ Dans le dossier « hackathon_application », copier-coller le script  « app.R �
 
 <img src="https://github.com/a-velt/Shiny_app_deployment/blob/main/2_creation_package_R_de_son_application/images/8.png" height="150">
 
-Dans « extdata », copier-coller les fichiers « euros.tsv », « forbes.csv » et « newcomb.csv »
-
-<img src="https://github.com/a-velt/Shiny_app_deployment/blob/main/2_creation_package_R_de_son_application/images/9.png" height="150">
-
-Modifier le fichier app.R pour qu’il aille chercher les 3 fichiers externes dans le bon dossier : 
-
-![alt text](https://github.com/a-velt/Shiny_app_deployment/blob/main/2_creation_package_R_de_son_application/images/10.png)
-
-La fonction « system.file() » permet de recréer le chemin absolu vers le fichier contenu dans le dossier « extdata » du package hackathon.
-
-Revenir dans le dossier « inst », créer un sous-dossier « www » et copier-coller le fichier « styles.css »
-
-![alt text](https://github.com/a-velt/Shiny_app_deployment/blob/main/2_creation_package_R_de_son_application/images/11.png)
-
-Puis modifier le fichier app.R pour donner le chemin vers styles.css : 
-
-![alt text](https://github.com/a-velt/Shiny_app_deployment/blob/main/2_creation_package_R_de_son_application/images/12.png)
-
 ## Ajouter des métadonnées de description au package R
 
 Modifier le fichier « DESCRIPTION » pour ajouter des informations sur votre application Shiny et notamment les packages R dont elle dépend et qui doivent être importés : 
