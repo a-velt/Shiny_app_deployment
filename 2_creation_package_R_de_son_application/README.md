@@ -30,7 +30,7 @@ Créer un dossier inst, qui contiendra les fichiers externes et les fichiers de 
 
 <img src="https://github.com/a-velt/Shiny_app_deployment/blob/main/2_creation_package_R_de_son_application/images/6.png" height="200">
 
-Dans le dossier « inst », créer un sous-dossier « extdata » qui contiendra les données externes et un sous-dossier « hackathon_application » qui contiendra l'application  :
+Dans le dossier « inst », créer un sous-dossier « hackathon_application » qui contiendra l'application  :
 
 <img src="https://github.com/a-velt/Shiny_app_deployment/blob/main/2_creation_package_R_de_son_application/images/7.png" height="150">
 
