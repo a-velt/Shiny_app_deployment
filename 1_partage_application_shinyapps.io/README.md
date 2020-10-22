@@ -16,7 +16,7 @@ https://www.shinyapps.io/admin/#/signup
 
 ## Paramétrer son compte :
 
-Une fois connecter, il vous est demandé de paramétrer votre compte : 
+Une fois connecté, il vous est demandé de paramétrer votre compte : 
 ![alt text](https://github.com/a-velt/Shiny_app_deployment/blob/main/1_partage_application_shinyapps.io/1.png "Paramétrer son compte 1")
 
 Un nom de compte vous est demandé et sera utilisé comme nom de domaine lors du partage de vos applications Shiny. Je mets « hackathon-avelt ».
